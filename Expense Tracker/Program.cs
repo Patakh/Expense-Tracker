@@ -1,5 +1,6 @@
-using Expense_Tracker.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Expense_Tracker.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 //DI
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"))
+   options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 var app = builder.Build();
 
