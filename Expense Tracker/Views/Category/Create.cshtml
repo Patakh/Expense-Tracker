@@ -1,0 +1,34 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Создать";
+}
+<h1>Create</h1>
+<h4>Category</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <div class="e-btn-group custom-rbt-group">
+                    <input type="radio" id="radioleft" name="Type" value="Exponse" checked="@(Model.Type=="Experense")" />
+                    <label class="e-btn" for="radioleft">Expense</label>
+                    <input type="radio" id="radioright" name="Type" value="Income" checked="@(Model.Type=="Income")" />
+                    <label class="e-btn" for="radioright">Income</label>
+                </div>
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <ejs-textbox id="title" placeholder="Заголовок" ejs-for="Title" value="Заголовок" floatLabelType="Always"></ejs-textbox>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <ejs-textbox id="title" placeholder="Иконка" ejs-for="Icon" value="Иконка" floatLabelType="Always"></ejs-textbox>
+                <span asp-validation-for="Icon" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
